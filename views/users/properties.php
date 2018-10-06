@@ -26,18 +26,19 @@ include "includes/header.php";
                 <li data-filter="1">Commercial</li>
                 <li data-filter="2">Residential</li>
                 <li data-filter="3">Luxury</li>
-            </ul>   
-           
+            </ul> 
             <div class="filtr-container " style="padding: 0px; position: relative; height: 858px;">
-            	 <?php 	while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
-			 		extract($row);
+             	<?php while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
+							extract($row);
 			 		$des = previewBody($description, 50);
-			 ?>
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="1, 5" data-sort="Busy streets" style="opacity: 1; transform: scale(1) translate3d(0px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
+						 ?>
+            	
+				<div class="col-md-4 col-ms-6 jm-item first filtr-item"  data-sort="Busy streets" >
 					<div class="jm-item-wrapper">
-						
+					
 							<div class="jm-item-image">
-								<img src="images/g1.jpg" alt="property" />
+								<div style="background:url('<?php echo $file_path?>'); height:200px; width: 400px; background-size: cover; background-position: center; background-repeat: no-repeat;" class="">
+								</div>
 								<span class="jm-item-overlay"> </span>
 								<div class="jm-item-button"><a <?php echo "href=property_details?hash_id=".$hash_id."'"; ?>>View Details</a></div>
 							</div>	
@@ -50,6 +51,8 @@ include "includes/header.php";
 					</div>
 				</div>
 				<?php } ?>
+
+				
 				<!-- <div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="2, 5" data-sort="Luminous night" style="opacity: 1; transform: scale(1) translate3d(380px, 0px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
 					<div class="jm-item-wrapper">
 						<div class="jm-item-image">
@@ -133,8 +136,8 @@ include "includes/header.php";
 						<a class="agile-its-property-title" href="property-details.html">Property 8</a>
 						<p class="w3ls-p-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 					</div>
-				</div>
-				<div class="col-md-4 col-ms-6 jm-item first filtr-item" data-category="1, 3, 4" data-sort="Dreamhouse" style="opacity: 1; transform: scale(1) translate3d(760px, 572px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
+				</div>-->
+	<!-- 			<div class="col-md-4 col-ms-6 jm-item first filtr-item"  data-sort="Dreamhouse" style="opacity: 1; transform: scale(1) translate3d(760px, 572px, 0px); backface-visibility: hidden; perspective: 1000px; transform-style: preserve-3d; position: absolute; transition: all 0.5s ease-out 0ms;">
 					<div class="jm-item-wrapper">
 						<div class="jm-item-image">
 							<img src="images/g3.jpg" alt="property" />
@@ -145,12 +148,20 @@ include "includes/header.php";
 						<a class="agile-its-property-title" href="property-details.html">Property 9</a>
 						<p class="w3ls-p-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 					</div>
-				</div> -->
+				</div>  -->
                <div class="clearfix"> </div>
+
+               
             </div>
+
+
 		</div>
+
+
 	</div>	
+
 	</div>
+
 	<!--//gallery-->
 	</div>
 <!-- //main-content -->

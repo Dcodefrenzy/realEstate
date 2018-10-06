@@ -20,7 +20,7 @@ if (isset($_GET)) {
 
 			$categories =
 			[
-			   "name" =>$category_name,  /* "hash_id"=>$hash_id,*/  "date_created"=>$date_created, "admin_id"=> $admin_id,
+			   "name" =>$category_name,   "hash_id"=>$hash_id,  "date_created"=>$date_created, "admin_id"=> $admin_id,
 			];	
 				array_push($res["categories"], $categories);
 				
