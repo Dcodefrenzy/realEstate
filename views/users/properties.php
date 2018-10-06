@@ -30,7 +30,7 @@ include "includes/header.php";
             <div class="filtr-container " style="padding: 0px; position: relative; height: 858px;">
              	<?php while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
 							extract($row);
-			 		$des = previewBody($description, 50);
+			 		$des = previewBody($description, 30);
 						 ?>
             	
 				<div class="col-md-4 col-ms-6 jm-item first filtr-item"  data-sort="Busy streets" >
