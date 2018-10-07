@@ -40,7 +40,7 @@ include "includes/header.php";
 								<div style="background:url('<?php echo $file_path?>'); height:200px; width: 400px; background-size: cover; background-position: center; background-repeat: no-repeat;" class="">
 								</div>
 								<span class="jm-item-overlay"> </span>
-								<div class="jm-item-button"><a <?php echo "href=property_details?hash_id=".$hash_id."'"; ?>>View Details</a></div>
+								<div class="jm-item-button"><a <?php echo "href=property_details?hash_id=".$hash_id.""; ?>>View Details</a></div>
 							</div>	
 							<div class="jm-item-title"><span>&#8358;</span><?php echo $price; ?></div>
 							<h4 align="center" style="color: #06a598"><b><?php echo $property; ?></b></h4>
