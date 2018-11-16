@@ -13,6 +13,10 @@ if(count($uri)> 2){
   if (isset($_GET['t'])) {
     $table = $_GET['t'];
   }
+  $message = "";
+  if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+  }
 
 
 
@@ -45,6 +49,10 @@ switch ($uri[1]) {
   	break;
     //ajax call
     case 'viewAdmins':
+    include APP_PATH."/app/admin/view_admin.php";  
+    break;
+
+    case 'viewAdmins?message=$message':
     include APP_PATH."/app/admin/view_admin.php";  
     break;
 
@@ -99,6 +107,10 @@ switch ($uri[1]) {
     include APP_PATH."/views/admin/view_properties.php"; 
     break;
 
+    case "view_properties?message=$message":
+    include APP_PATH."/views/admin/view_properties.php";
+    break;
+
     case 'editproperty':
     include APP_PATH."/app/property/editProperty.php"; 
     break;
@@ -143,6 +155,11 @@ switch ($uri[1]) {
     break;
 
 
+    case "viewAdminBlog?message=$message":
+    include APP_PATH."/views/admin/view_blog.php";
+    break;
+
+
     case 'view_adminBlog':
     include APP_PATH."/app/blog/viewBlogs.php";
     break;
@@ -155,6 +172,14 @@ switch ($uri[1]) {
 
     case "edit_Blog":
     include APP_PATH."/app/blog/editBlog.php";
+    break;
+
+    case "deleteProperty?hash_id=$hash_id":
+    include APP_PATH."/app/property/deleteProperty.php";
+    break;
+
+    case "deleteBlog?hash_id=$hash_id":
+    include APP_PATH."/app/blog/deleteBlog.php";
     break;
 
 
@@ -174,6 +199,8 @@ switch ($uri[1]) {
     case 'about':
     include APP_PATH. "/views/users/about.php";
     break;
+
+    
 
     case 'blog':
     include APP_PATH. "/views/users/blog.php";

@@ -31,7 +31,19 @@ if(array_key_exists('submit', $_POST)){
     $upload_img->file_path = $ver;
     $upload_img->hash_id  = $_GET['hash_id'];
     if ($upload_img->updateImage()) {
-     $message = 'upload Successful';
+      $message = 'Upload';
+      if ($_GET['t'] == "blog") {
+        header("Location:viewAdminBlog?message=$message");
+      }
+      if ($_GET['t'] == "property") {
+        header("Location:view_properties?message=$message");
+      }
+      if ($_GET['t'] == "admin") {
+        header("Location:viewAdmins?message=$message");
+      }
+      if ($_GET['t']== "about") {
+        header("Location:viewAbout?message=$message");
+      }
     }else{
       $message = "upload not Successful";
     }

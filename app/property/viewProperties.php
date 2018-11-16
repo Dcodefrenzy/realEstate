@@ -18,13 +18,14 @@ session_start();
 		while ($row = $stmt->fetch(PDO::FETCH_BOTH)) 
 		{
 			extract($row);
+			 $bd = previewBody($description, 30);
 			
 
 			$properties =
 			[
 			 "property"=> $property,
 			"location"=> $location,
-			"description"=> $description,
+			"description"=> $bd,
 			"category"=> $category,
 			"date_created"=> $date_created,
 			"status"=>$status,

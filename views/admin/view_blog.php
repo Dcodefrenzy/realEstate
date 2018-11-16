@@ -3,6 +3,20 @@ ob_start();
 session_start();
 authenticate();
 include "includes/header.php";
+if (isset($_GET["message"])) {
+    $msg = $_GET['message'];
+     echo '<div class="col-md-12">
+  <div class="inner-box posting">
+  <div class="alert alert-success alert-lg" role="alert">
+  <h2 class="postin-title">✔ '.$msg.' Successful!  </h2>
+  <p>Thank you, Praisegate Homes is happy to have you around. </p>
+  </div>
+  </div>
+  </div>';
+}
+
+  
+
 ?>
 
 
@@ -14,12 +28,12 @@ include "includes/header.php";
 <table class="table table-striped table-bordered add-manage-table">
   <tr>
     <th>Blog title</th>
-    <th>autthor</th>
-    <th>bodyr</th>
-    <th>Image(Click to change)</th>
+    <th>Author</th>
+    <th>Body</th>
+    <th>Image</th>
     <th>Date Added</th>
     <th>Admin  Id</th>
-    <th>AEdit</th>
+    <th>Edit</th>
     <th>Delete</th>
   </tr>
 <tbody id="tbody">

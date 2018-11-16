@@ -3,6 +3,17 @@ ob_start();
 session_start();
 authenticate();
 include "includes/header.php";
+if (isset($_GET["message"])) {
+    $msg = $_GET['message'];
+     echo '<div class="col-md-12">
+  <div class="inner-box posting">
+  <div class="alert alert-success alert-lg" role="alert">
+  <h2 class="postin-title">✔  '.$msg.' Successful!</h2>
+  <p>Thank you, Praisegate Homes is happy to have you around. </p>
+  </div>
+  </div>
+  </div>';
+}
 ?>
 
 
