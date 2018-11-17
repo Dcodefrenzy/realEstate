@@ -51,13 +51,15 @@ switch ($uri[1]) {
   	case 'view_admins':
   	include APP_PATH."/views/admin/view_admins.php";	
   	break;
+
+
     //ajax call
     case 'viewAdmins':
     include APP_PATH."/app/admin/view_admin.php";  
     break;
 
-    case 'viewAdmins?message=$message':
-    include APP_PATH."/app/admin/view_admin.php";  
+    case 'view_admins?message=$message':
+    include APP_PATH."/views/admin/view_admins.php";  
     break;
 
   	case 'admin_login':
@@ -180,6 +182,11 @@ switch ($uri[1]) {
 
     case "deleteProperty?hash_id=$hash_id":
     include APP_PATH."/app/property/deleteProperty.php";
+    break;
+
+
+    case "deleteAdmin?hash_id=$hash_id":
+    include APP_PATH."/app/admin/deleteAdmin.php";
     break;
 
     case "deleteBlog?hash_id=$hash_id":

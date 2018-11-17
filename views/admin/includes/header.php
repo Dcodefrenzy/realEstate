@@ -14,8 +14,10 @@ header("cache-control:no-cache");
   <title>
 </title>
   <!-- <script type="text/javascript" src="/assets/ckeditor5-build-classic/ckeditor.js"></script> -->
+  
   <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
   <link rel="shortcut icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" type="text/css" href="css/preloader.css">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
   <link rel="stylesheet" href="assets/css/jasny-bootstrap.min.css" type="text/css">
   <link rel="stylesheet" href="assets/css/jasny-bootstrap.min.css" type="text/css">
@@ -46,6 +48,7 @@ header("cache-control:no-cache");
 </script>
 </head>
 <body>
+ 
   <div class="header">
     <nav class="navbar navbar-default main-navigation" role="navigation">
       <div class="container">
@@ -67,6 +70,7 @@ header("cache-control:no-cache");
         </div>
       </div>
     </nav>
+    
     <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
       <div class="close" data-toggle="offcanvas" data-target=".navmenu">
         <i class="fa fa-close"></i>
@@ -80,6 +84,8 @@ header("cache-control:no-cache");
            <li><a href="view_properties">view Properties</a></li>
            <li><a href="add_blog">Add Blog</a></li>
            <li><a href="viewAdminBlog">view Blog</a></li>
+           <li><a href="add_category">Add Categories</a></li>
+           <li><a href="view_categories">view Categories</a></li>
          <!--    <li><a href="add_about">Add About Us</a></li>
             <li><a href="manage_about">About Us</a></li> -->
         
@@ -88,6 +94,8 @@ header("cache-control:no-cache");
           <li> <a href="logout">Logout</a></li>
       </ul>
     </div>
+
     <div class="tbtn wow pulse" id="menu" data-wow-iteration="infinite" data-wow-duration="500ms" data-toggle="offcanvas" data-target=".navmenu">
       <p><i class="fa fa-file-text-o"></i> All Pages</p>
     </div>
+

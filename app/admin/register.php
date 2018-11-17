@@ -40,7 +40,7 @@
   		{
    
    	 		$rnd = rand(0000000000,9999999999);
-    		$split = $_POST['firstname'].$_POST['lastname'];
+    		$split = $_POST['firstname'];
     		$id = $rnd.$split;
     		$hash_id = str_shuffle($id);
 
@@ -57,9 +57,9 @@
 
 			if ($admin->create()) 
 			{
-				echo "success";
+			 
 				echo json_encode(
-							array("success" => "success.")
+							array( "Registration Successful")
 							);	
 			}
 			else

@@ -24,7 +24,7 @@ include("includes/header.php");
     </h3
     </div>
     </div>
-    <div class="item" style="background-image: url(assets/img/slider/slide2.jpg);">
+    <div class="item" style="background-image: url(images/real1.jpg);">
     <div class="carousel-caption">
     <h2>
     POST YOUR CONTENT
@@ -34,7 +34,7 @@ include("includes/header.php");
     </h3>
     </div>
     </div>
-    <div class="item" style="background-image: url(assets/img/slider/slide3.jpg);">
+    <div class="item" style="background-image: url(images/real1.jpg);">
     <div class="carousel-caption">
     <h2>
     Get  Exposure

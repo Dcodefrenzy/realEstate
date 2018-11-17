@@ -176,7 +176,7 @@ console.log(category.category_name)
   		var params =  'category_name=' + category.category_name+
                     '&hash_id=' + category.id;
   		edit_category(url, method, params);
-  		console.log(params);
+  		/*console.log(params);*/
   				function edit_category(url, method, params){
   					var xhr = new XMLHttpRequest();
   					xhr.onreadystatechange = function(){

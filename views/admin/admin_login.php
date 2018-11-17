@@ -37,6 +37,8 @@ session_start();
 <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
 
 <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+
+ <link rel="stylesheet" type="text/css" href="css/preloader.css">
 </head>
 <body>
 
@@ -85,6 +87,7 @@ Login
 </div>
 <input class="btn btn-common log-btn" type="submit" name="submit" value="submit">
 </form>
+<div  id="preload" class="loader" ></div>
 <ul class="form-links">
 <li class="pull-left"><a href="adminRegistration">Don't have an account?</a></li>
 <li class="pull-right"><a href="forgot-password.html">Lost your password?</a></li>
@@ -93,6 +96,7 @@ Login
 <a href="index">
 <button class="btn btn-common red-btn">Go to home</button>
 </a>
+
 </div>
 </div>
 </div>
@@ -119,18 +123,21 @@ Login
 <script type="text/javascript" src="assets/js/jquery.themepunch.tools.min.js"></script>
 <script src="assets/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
-  window.addEventListener('load', function(){
-  console.log("here");
-});
+
 
 
 var form = document.forms.myForm
 
 //Form validation using ajax to send post request to the backend.
 form.addEventListener('submit', displayform, false);
+
+
 var errors = {};
 function displayform(event){
   event.preventDefault();
+  var preload = document.getElementById('preload');
+  preload.className = "preloader";
+ /* console.log(preload);*/
     var user = {};
   var alphabet = /^[a-zA-Z]+$/;
   var numbers = /^[0-9]+$/;
@@ -156,7 +163,7 @@ function displayform(event){
           var method = "POST";
           var params = "email=" + user.email + "&pword=" + user.pword;
           adminLogin(url, method, params);
-            console.log(params);
+           /* console.log(params);*/
 
 
           function adminLogin(url, method, params){
@@ -165,14 +172,14 @@ function displayform(event){
                 if (xhr.readyState == 4) {
                       var res = xhr.responseText;
                       var data = JSON.parse(res);
-                      console.log(data.response[0].hash_id);
+                    /*  console.log(data.response[0].hash_id);*/
                      if (data.response[0].message == true) {
                       sessionStorage.setItem('session_id', data.response[0].hash_id);
                       sessionStorage.setItem('session_name', data.response[0].name);
                       window.location = "/adminHome";
                     }
                     else{
-                      console.log("error");
+                      console.log(errors);
                     }
                     
 
@@ -184,7 +191,7 @@ function displayform(event){
           } 
     }
     else{
-      console.log(errors);
+      alert(errors);
     }
   }
 </script>
