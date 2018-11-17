@@ -13,7 +13,7 @@ session_start();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="author" content="BoardSpeck">
-<title>BoardSpeck Web Office </title>
+<title>PraiseGate Web Office </title>
 
 <link rel="shortcut icon" href="assets/img/favicon.png">
 
@@ -47,7 +47,7 @@ session_start();
 <div class="row">
 <div class="col-md-12">
 <div class="breadcrumb-wrapper">
-<h2 class="page-title">Login to your the BoardSpeck Web Office</h2>
+<h2 class="page-title">Login to your the PraiseGate Web Office</h2>
 </div>
 </div>
 </div>
