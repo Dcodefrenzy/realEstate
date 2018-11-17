@@ -32,6 +32,10 @@ switch ($uri[1]) {
   	include APP_PATH."/app/logs/select_logs.php";
  	  break;
 
+    case 'admin':
+    include APP_PATH. "views/admin/admin_home.php";
+    break;
+
     case "adminHome":
     include APP_PATH."/views/admin/admin_home.php";
     break;
