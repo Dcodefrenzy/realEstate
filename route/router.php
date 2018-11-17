@@ -33,7 +33,7 @@ switch ($uri[1]) {
  	  break;
 
     case 'admin':
-    include APP_PATH. "views/admin/admin_home.php";
+    include APP_PATH. "/views/admin/admin_home.php";
     break;
 
     case "adminHome":
