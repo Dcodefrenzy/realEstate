@@ -2,6 +2,7 @@
 ob_start();
 session_start();
 authenticate();
+include "includes/header.php";
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +38,7 @@ authenticate();
 <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
 
 <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+<link rel="stylesheet" type="text/css" href="css/preloader.css">
 </head>
 <body>
 
@@ -129,6 +131,7 @@ Register
 
 
 </form>
+<div  id="preload" class="loader" ></div>
 </div>
 </div>
 </div>
@@ -153,7 +156,6 @@ Register
 <script type="text/javascript" src="assets/js/contact-form-script.js"></script>
 <script type="text/javascript" src="assets/js/jquery.themepunch.revolution.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="myscript/myscript.js"></script>
 <script src="assets/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
 	
@@ -174,6 +176,9 @@ form.addEventListener('submit', displayform, false);
 
 function displayform(event){
 	event.preventDefault();
+	  var preload = document.getElementById('preload');
+  preload.className = "preloader";
+  console.log(preload);
 		var user = {};
 		var errors = {};
 	var alphabet = /^[a-zA-Z]+$/;
@@ -236,13 +241,20 @@ function displayform(event){
   					 /*'&upload=' + user.upload +*/
   					 '&phonenumber=' + user.phone;
   		register(url, method, params);
-  		console.log(params);
+  		/*console.log(params);*/
   				function register(url, method, params){
   					var xhr = new XMLHttpRequest();
   					xhr.onreadystatechange = function(){
     				if(xhr.readyState == 4){
      					 var res = xhr.responseText;
-      						console.log(res);
+      						/*console.log(res);*/
+      						if (res) {
+      							  var preload = document.getElementById('preload');
+  									preload.className = "loader";
+  									console.log(preload);
+      						}
+      						
+      						alert(JSON.stringify(res));
 
       					/*document.getElementById('sub').innerHTML = res ;*/
    					 }

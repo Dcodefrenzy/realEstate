@@ -23,16 +23,20 @@ var_dump($_POST);
 			$categories->admin_id = $_SESSION['id'];
 			if ($categories->create()) 
 			{
-				echo "success";
-				echo json_encode(
-							array("success" => "success.")
-							);		
+				$message = [
+					"success"=> "uploade successful", "hash_id"=>$hash_id,
+				]; 
+				array_push($res['response'], $message);
+				echo json_encode($res);
+									
 			}
 			else
 			{
-				echo json_encode(
-							array("error", $error)
-							);
+					$message = [
+						"unsucessful"=> "uploade not successful",
+					];
+					array_push($res['response'], $message);
+					echo json_encode($res);
 			}
 		}
 	}

@@ -2,6 +2,7 @@
 ob_start();
 session_start();
 authenticate();
+include "includes/header.php";
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +37,7 @@ authenticate();
 <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
 
 <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+<link rel="stylesheet" type="text/css" href="css/preloader.css">
 </head>
 <body>
 
@@ -61,6 +63,7 @@ authenticate();
 
 <input type="submit" class="btn btn-common" name="submit" value="Add">
 </form>
+<div  id="preload" class="loader" ></div>
 </div>
 </div>
 </div>
@@ -142,6 +145,8 @@ form.addEventListener('submit', displayform, false);
 
 function displayform(event){
 	event.preventDefault();
+    var preload = document.getElementById('preload');
+  preload.className = "preloader";
 		var category = {};
 		var errors = {};
 
@@ -161,17 +166,21 @@ function displayform(event){
   		var method = 'POST';
   		var params =  'category_name=' + category.category_name;
   		addcategory(url, method, params);
-  		console.log(params);
+  	/*	console.log(params);*/
   				function addcategory(url, method, params){
   					var xhr = new XMLHttpRequest();
   					xhr.onreadystatechange = function(){
     				if(xhr.readyState == 4){
      					 var res = xhr.responseText;
-      						console.log(res);
-
-      					/*document.getElementById('sub').innerHTML = res ;*/
-   					 }
- 				 }
+      			    var data = JSON.parse(res);
+               if (data.response[0].success) {
+                window.location = "/addImage?t=pr&&hash_id="+data.response[0].hash_id;
+               }else{
+                 alert(data.response[0].unsucessful);
+               }
+                  
+             }
+         }
   					xhr.open(method, url, true);
   					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   					xhr.send(params);

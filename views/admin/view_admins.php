@@ -3,13 +3,26 @@ ob_start();
 session_start();
 authenticate();
 include "includes/header.php";
+if (isset($_GET["message"])) {
+    $msg = $_GET['message'];
+     echo '<div class="col-md-12">
+  <div class="inner-box posting">
+  <div class="alert alert-success alert-lg" role="alert">
+  <h2 class="postin-title">✔ '.$msg.' Successful!  </h2>
+  <p>Thank you, Praisegate Homes is happy to have you around. </p>
+  </div>
+  </div>
+  </div>';
+}
 ?>
 
 
+ <link rel="stylesheet" type="text/css" href="css/preloader.css">
 <div class="col-sm-9 page-content" style="width:100%;overflow-x:scroll; ">
 
 <h2 class="title-2"><i class="fa fa-star-o"></i> Manage Project</h2>
 <br>
+<div  id="preloader" class="preloader" ></div>
 <div class="table-responsive">
 <table class="table table-striped table-bordered add-manage-table">
   <tr>
@@ -160,12 +173,12 @@ BoardSpeck.com </p>
   window.addEventListener('load', viewAdmins, false );
   var tbody = document.getElementById('tbody');
   
-
+/*
   var emailId = document.getElementById('email');
   var nameId = document.getElementById('name');
   var phoneId = document.getElementById('phone');
   var adminId = document.getElementById('admin');
-  var dateId =document.getElementById('date');
+  var dateId =document.getElementById('date');*/
   function viewAdmins(event){
     event.preventDefault();
      if (!sessionStorage.getItem("session_id")) {
@@ -175,7 +188,7 @@ BoardSpeck.com </p>
     var url = 'viewAdmins';
     var method = "GET";
     getAdmins(url, method);
-    console.log(url, method);
+  /*  console.log(url, method);*/
   }
     
     function getAdmins(url, method){
@@ -184,21 +197,26 @@ BoardSpeck.com </p>
         if (xhr.readyState==4) {
             var res =  xhr.responseText;
            var data = JSON.parse(res);
-            console.log(data);
+           if (data) {
+            var preloader = document.getElementById("preloader");
+            preloader.className = "loader";
+            console.log(preloader);
+            
+           }
+           /* console.log(data);
+
              
              console.log(data.admins[0].name);
-/*             data.admins.forEach(function(){
-                    console.log(data.admins);
-                  });*/
+
              console.log(data.admins.length);
-             for (var i = 0,  j = data.admins.length; i < j;  i++) {
+*/             for (var i = 0,  j = data.admins.length; i < j;  i++) {
                   
                 var tr = document.createElement("tr");
                 var button =document.createElement("button");
                 button.className = "btn btn-danger btn-sm";
                 button.value = data.admins[i].hash_id;
                 button.id = "button";
-                button.type = "submit";
+                 button.type = "submit";
                 var nameTd = document.createElement("td");
                 nameTd.id = "name";
                  var emailTd = document.createElement("td");
@@ -209,10 +227,13 @@ BoardSpeck.com </p>
                 imageTd.className = "add-img-td";
                 var dateTd = document.createElement("td");
                 dateTd.id = "name";
+                 var deleteLink = document.createElement("a");
+                 deleteLink.href = "/deleteAdmin?hash_id="+data.admins[i].hash_id;
                  var adminTd = document.createElement("td");
                 adminTd.id = "name";
                 var deleteTd = document.createElement("td");
-                deleteTd.appendChild(button);
+                  deleteLink.appendChild(button);
+                deleteTd.appendChild(deleteLink);
                 /*  console.log(button);
                   console.log(imageTd);*/
 
@@ -227,7 +248,7 @@ BoardSpeck.com </p>
                 tr.appendChild(adminTd);
                 tr.appendChild(deleteTd);
 
-                /*td.appendChild(p)*/
+              
                   button.append("Delete");
                 p.append(data.admins[i].email);
                 nameTd.append(data.admins[i].name);
@@ -236,28 +257,19 @@ BoardSpeck.com </p>
                 imageTd.append(data.admins[i].file_path);
                 dateTd.append(data.admins[i].date_created);
                 adminTd.append(data.admins[i].hash_id);
-                /*var name = data.admins[i].name;*/
-              /* console.log(data.admins[i].name);
-               console.log(tbody);*/
-            /*  var  tr ="<tr>"+
-                  "<td>"
-                  "<p >"+ name +"</p>"
-                  "</td></tr>";
-                  ;*/
+           
 
 
              }
-            console.log("here");
+           /* console.log("here");*/
         }
       }
       xhr.open(method, url, true);
       xhr.send();
     }
 
-    deleteAdmin = document.querySelector("button");
-    deleteAdmin.addEventListener("onClick", function(){
-      console.log("here");
-    }, false);
+    
+   
     
 
  

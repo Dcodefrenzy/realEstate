@@ -15,12 +15,15 @@ if (isset($_GET["message"])) {
   </div>';
 }
 ?>
+ <link rel="stylesheet" type="text/css" href="css/preloader.css">
 
 
 <div class="col-sm-9 page-content" style="width:100%;overflow-x:scroll; ">
 
-<h2 class="title-2"><i class="fa fa-star-o"></i> Manage Project</h2>
+<h2 class="title-2"><i class="fa fa-star-o"></i> Manage Properties</h2>
 <br>
+<div  id="preloader" class="preloader" ></div>
+
 <div class="table-responsive">
 <table class="table table-striped table-bordered add-manage-table">
   <tr>
@@ -37,6 +40,7 @@ if (isset($_GET["message"])) {
     <th>Delete</th>
   </tr>
 <tbody id="tbody">
+
 
 <!-- <tr>
 <td class="" id="name">
@@ -176,12 +180,12 @@ BoardSpeck.com </p>
   window.addEventListener('load', viewblog, false );
   var tbody = document.getElementById('tbody');
   
-
+/*
   var emailId = document.getElementById('email');
   var nameId = document.getElementById('name');
   var phoneId = document.getElementById('phone');
   var blogId = document.getElementById('blog');
-  var dateId =document.getElementById('date');
+  var dateId =document.getElementById('date');*/
   function viewblog(event){
     event.preventDefault();
      if (!sessionStorage.getItem("session_id")) {
@@ -191,7 +195,7 @@ BoardSpeck.com </p>
     var url = 'viewproperties';
     var method = "GET";
     getblog(url, method);
-    console.log(url, method);
+    /*console.log(url, method);*/
   }
     
     function getblog(url, method){
@@ -199,9 +203,15 @@ BoardSpeck.com </p>
       xhr.onreadystatechange = function(){
         if (xhr.readyState==4) {
             var res =  xhr.responseText;
-            console.log(res);
+            /*console.log(res);*/
               var data = JSON.parse(res);
             // console.log(data);
+             if (data) {
+            var preloader = document.getElementById("preloader");
+            preloader.className = "loader";
+            console.log(preloader);
+            
+           }
 
              
              for (var i = 0,  j = data.properties.length; i < j;  i++) {

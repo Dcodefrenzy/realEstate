@@ -37,6 +37,7 @@ include "includes/header.php";
 <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
 
 <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+<link rel="stylesheet" type="text/css" href="css/preloader.css">
 </head>
 <body>
 
@@ -79,6 +80,7 @@ include "includes/header.php";
 <br> -->
 <input type="submit" class="btn btn-common" name="submit" value="Add">
 </form>
+<div  id="preload" class="loader" ></div>
 </div>
 </div>
 </div>
@@ -161,6 +163,8 @@ form.addEventListener('submit', displayform, false);
 
 function displayform(event){
 	event.preventDefault();
+    var preload = document.getElementById('preload');
+  preload.className = "preloader";
 		var blog = {};
 		var errors = {};
 
@@ -199,13 +203,13 @@ function displayform(event){
   					xhr.onreadystatechange = function(){
     				if(xhr.readyState == 4){
      					 var res = xhr.responseText;
-     					 console.log(res);
+     					 /*console.log(res);*/
      					 
      					 var data = JSON.parse(res);
      					 if (data.response[0].success) {
      					 	window.location = "/addImage?t=blog&&hash_id="+data.response[0].hash_id;
      					 }else{
-     					 	console.log("nothing here");
+     					 	 alert(data.response[0].unsucessful);
      					 }
       						
    					 }

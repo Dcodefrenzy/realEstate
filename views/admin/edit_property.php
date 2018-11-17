@@ -195,7 +195,7 @@ Rent
             if (!sessionStorage.getItem("session_id")) {
                 window.location = "/admin_login";
             }
-                      console.log("here again");
+                      /*console.log("here again");*/
       var url = 'viewCategories';
       var method = "GET";
       getCategories(url, method);
@@ -205,7 +205,7 @@ Rent
           if (xhr.readyState==4){
           
             var res =  xhr.responseText;
-            console.log(res);
+            /*console.log(res);*/
                 var data = JSON.parse(res);
                 var cat = document.getElementById('Category');
                 for (var i = 0,  j = data.categories.length; i < j;  i++){
@@ -216,8 +216,8 @@ Rent
                   option.value = data.categories[i].name;
                   option.append(data.categories[i].name);
                   cat.appendChild(option);
-                  console.log(option);  
-                  console.log(cat);              }
+                  /*console.log(option);  
+                  console.log(cat); */             }
                 else{
                   console.log(data.categories[i].error);
                   var option = document.createElement("option");

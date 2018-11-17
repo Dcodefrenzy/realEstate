@@ -6,10 +6,12 @@ include "includes/header.php";
 ?>
 
 
+ <link rel="stylesheet" type="text/css" href="css/preloader.css">
 <div class="col-sm-9 page-content" style="width:100%;overflow-x:scroll; ">
 
 <h2 class="title-2"><i class="fa fa-star-o"></i> Manage Project</h2>
 <br>
+<div  id="preloader" class="preloader" ></div>
 <div class="table-responsive">
 <table class="table table-striped table-bordered add-manage-table">
   <tr>
@@ -167,7 +169,7 @@ BoardSpeck.com </p>
     var url = 'viewCategories';
     var method = "GET";
     getcategories(url, method);
-    console.log(url, method);
+ /*   console.log(url, method);*/
   }
     
     function getcategories(url, method){
@@ -176,10 +178,16 @@ BoardSpeck.com </p>
         if (xhr.readyState==4) {
             var res =  xhr.responseText;
            var data = JSON.parse(res);
-            console.log(data);
-             
+          if (data) {
+            var preloader = document.getElementById("preloader");
+            preloader.className = "loader";
+            console.log(preloader);
+            
+           }
+           /* console.log(data);*/
+            /* 
              console.log(data.categories[0].name);
-             console.log(data.categories.length);
+             console.log(data.categories.length);*/
              for (var i = 0,  j = data.categories.length; i < j;  i++) {
                   
                 var tr = document.createElement("tr");
@@ -239,7 +247,7 @@ BoardSpeck.com </p>
 
 
              }
-            console.log("here");
+            /*console.log("here");*/
         }
       }
       xhr.open(method, url, true);

@@ -208,13 +208,13 @@ function displayform(event){
   					 '&body=' + blog.body +
   					 '&hash_id='+ blog.hash_id;
   		editBlog(url, method, params);
-  		console.log(params);
+  		/*console.log(params);*/
   				function editBlog(url, method, params){
   					var xhr = new XMLHttpRequest();
   					xhr.onreadystatechange = function(){
     				if(xhr.readyState == 4){
-
-    					console.log("here");
+/*
+    					console.log("here");*/
      					 var res = xhr.responseText;
      					 console.log(res);
      					 var data = JSON.parse(res);

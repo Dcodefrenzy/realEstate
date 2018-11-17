@@ -19,11 +19,12 @@ if (isset($_GET["message"])) {
 
 ?>
 
-
+ <link rel="stylesheet" type="text/css" href="css/preloader.css">
 <div class="col-sm-9 page-content" style="width:100%;overflow-x:scroll; ">
 
-<h2 class="title-2"><i class="fa fa-star-o"></i> Manage Project</h2>
+<h2 class="title-2"><i class="fa fa-star-o"></i> Manage Blog</h2>
 <br>
+<div  id="preloader" class="preloader" ></div>
 <div class="table-responsive">
 <table class="table table-striped table-bordered add-manage-table">
   <tr>
@@ -191,7 +192,7 @@ BoardSpeck.com </p>
     var url = 'view_adminBlog';
     var method = "GET";
     getblog(url, method);
-    console.log(url, method);
+/*    console.log(url, method);*/
   }
     
     function getblog(url, method){
@@ -199,8 +200,14 @@ BoardSpeck.com </p>
       xhr.onreadystatechange = function(){
         if (xhr.readyState==4) {
             var res =  xhr.responseText;
-            console.log(res);
+         /*   console.log(res);*/
               var data = JSON.parse(res);
+          if (data) {
+            var preloader = document.getElementById("preloader");
+            preloader.className = "loader";
+            console.log(preloader);
+            
+           }
              
              for (var i = 0,  j = data.blogs.length; i < j;  i++) {
                   

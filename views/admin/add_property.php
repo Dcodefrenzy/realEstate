@@ -37,6 +37,7 @@ include("includes/header.php");
 <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
 
 <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+<link rel="stylesheet" type="text/css" href="css/preloader.css">
 </head>
 <body>
 
@@ -44,12 +45,12 @@ include("includes/header.php");
 
 <div class="col-sm-12 col-md-10 col-md-offset-1">
 <div class="page-ads box">
-<h2 class="title-2">Welcome to the Article page</h2>
+<h2 class="title-2">Welcome to the Property page</h2>
 <div class="row search-bar mb30 red-bg">
 <div class="advanced-search">
 <form class="search-form" method="get">
 <div class="col-md-4 col-sm-12 search-col">
-<h3>Please post your article.</h3>
+<h3>Please post your Property Details Here.</h3>
 </div>
 </form>
 </div>
@@ -61,7 +62,7 @@ include("includes/header.php");
 </div>
 <div class="form-group mb30">
 <label class="control-label">location Name</label>
- <input class="form-control input-md" name="location" id="location" placeholder="Enter locations name here"  type="text" required>
+ <input class="form-control input-md" name="location" id="location" placeholder="Enter location name here"  type="text" required>
 </div>
 
 <div class="form-group mb30">
@@ -88,8 +89,7 @@ include("includes/header.php");
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
+
 
  <div class="col-md-4 col-sm-4 col-xs-12 search-bar search-bar-nostyle">
 <div class="input-group-addon search-category-container">
@@ -114,6 +114,7 @@ Rent
 
 <input type="submit" class="btn btn-common" name="submit" value="Add">
 </form>
+<div  id="preload" class="loader" ></div>
 </div>
 </div>
 </div>
@@ -231,6 +232,8 @@ form.addEventListener('submit', displayform, false);
 
 function displayform(event){
 	event.preventDefault();
+    var preload = document.getElementById('preload');
+  preload.className = "preloader";
 		var property = {};
 		var errors = {};
 		var numbers = /^[0-9]+$/;
@@ -290,19 +293,19 @@ function displayform(event){
              '&category=' + property.Category;
  
   		addproperty(url, method, params);
-  		console.log(params);
+  		/*console.log(params);*/
   				function addproperty(url, method, params){
   					var xhr = new XMLHttpRequest();
   					xhr.onreadystatechange = function(){
     				if(xhr.readyState == 4){
      					 var res = xhr.responseText;
-      						console.log(res);
+      					/*	console.log(res);*/
                
                var data = JSON.parse(res);
                if (data.response[0].success) {
                 window.location = "/addImage?t=property&&hash_id="+data.response[0].hash_id;
                }else{
-                console.log("nothing here");
+                alert(data.response[0].unsucessful);
                }
    					 }
  				 }
