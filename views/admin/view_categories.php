@@ -254,8 +254,7 @@ BoardSpeck.com </p>
       xhr.send();
     }
 
-var editCategory = document.querySelector("button").value;
-console.log(editCategory);
+
 /*editCategory.addEventListener('click', function(){
     console.log("here");
 }, false)*/
