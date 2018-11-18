@@ -4,6 +4,8 @@
   border-top: 16px solid #3498db;
   width: 50px;
   height: 50px;
+  position: relative;
+  left: 50%;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear  infinite;
    
