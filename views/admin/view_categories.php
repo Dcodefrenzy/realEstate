@@ -181,13 +181,11 @@ BoardSpeck.com </p>
           if (data) {
             var preloader = document.getElementById("preloader");
             preloader.className = "loader";
-            console.log(preloader);
+            /*console.log(preloader);*/
             
            }
            /* console.log(data);*/
-            /* 
-             console.log(data.categories[0].name);
-             console.log(data.categories.length);*/
+          
              for (var i = 0,  j = data.categories.length; i < j;  i++) {
                   
                 var tr = document.createElement("tr");
