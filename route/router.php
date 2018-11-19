@@ -125,7 +125,7 @@ switch ($uri[1]) {
     include APP_PATH."/views/admin/edit_property.php"; 
     break;
 
-
+    //Working perfectly at this time.
     case 'viewCategories':
     include APP_PATH."/app/Categories/viewCategories.php"; 
     break;
