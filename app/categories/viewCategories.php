@@ -31,7 +31,7 @@ if (isset($_GET)) {
 		[
 			"error" => "No categories yet",
 		];
-
+		//here
 		array_push($res["categories"], $categories);
 		echo json_encode($res);
 	}
