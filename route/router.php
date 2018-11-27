@@ -130,6 +130,10 @@ switch ($uri[1]) {
     include APP_PATH."/app/Categories/viewCategories.php"; 
     break;
 
+    case "view_categories?message=$message":
+    include APP_PATH."/views/admin/view_categories.php"; 
+    break;
+      
 
     case 'addCategory':
     include APP_PATH."/app/Categories/addCategory.php"; 
@@ -191,6 +195,11 @@ switch ($uri[1]) {
 
     case "deleteBlog?hash_id=$hash_id":
     include APP_PATH."/app/blog/deleteBlog.php";
+    break;
+
+
+    case "deleteCategory?hash_id=$hash_id":
+    include APP_PATH."/app/Categories/deleteCategory.php";
     break;
 
 

@@ -209,33 +209,32 @@ function displayform(event){
   					 '&hash_id='+ blog.hash_id;
   		editBlog(url, method, params);
   		/*console.log(params);*/
-  				function editBlog(url, method, params){
-  					var xhr = new XMLHttpRequest();
-  					xhr.onreadystatechange = function(){
-    				if(xhr.readyState == 4){
+        function editBlog(url, method, params){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
 /*
-    					console.log("here");*/
-     					 var res = xhr.responseText;
-     					 console.log(res);
-     					 var data = JSON.parse(res);
-     					 if (data.response[0].success) {
-     					 window.location = "/addImage?t=blog&&hash_id="+data.response[0].hash_id;
-     					 }
-     					 else{
-     					 	 console.log("Not successful");
-     					 }
-     					
-   					 }
- 				 }
-  					xhr.open(method, url, true);
-  					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  					xhr.send(params);
-				}
-	}
+              console.log("here");*/
+               var res = xhr.responseText;
+               console.log(res);
+               var data = JSON.parse(res);
+               if (data.response[0].success) {
+               window.location = "/addImage?t=blog&&hash_id="+data.response[0].hash_id;
+               }
+               else{
+                 console.log("Not successful");
+               }
+              
+             }
+         }
+            xhr.open(method, url, true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(params);
+        }
+  }
 	else{
 		alert(JSON.stringify(errors));
 	}
-	
 }
 </script>
 

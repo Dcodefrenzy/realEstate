@@ -242,7 +242,7 @@ function displayform(event){
   					 '&phonenumber=' + user.phone;
   		register(url, method, params);
   		/*console.log(params);*/
-  				function register(url, method, params){
+  						function register(url, method, params){
   					var xhr = new XMLHttpRequest();
   					xhr.onreadystatechange = function(){
     				if(xhr.readyState == 4){
@@ -263,12 +263,12 @@ function displayform(event){
   					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   					xhr.send(params);
 				}
-	}
+			}
 	else{
 		alert(JSON.stringify(errors));
 	}
-	
 }
+
 </script>
 
 </body>

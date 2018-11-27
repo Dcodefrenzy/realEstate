@@ -80,7 +80,7 @@
 				 WHERE hash_id = :hash_id");
 	
 
-	$db->bindParams(":hash_id", $this->hash_id);
+	$db->bindParam(":hash_id", $this->hash_id);
 		if($db->execute())
 		{
 			return true;

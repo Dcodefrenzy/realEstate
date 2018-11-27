@@ -9,16 +9,14 @@ authenticate();
 		$hash_id = $_GET['hash_id'];
 		$categories->hash_id = $hash_id;
 		if ($categories->deleteOne()) {
-				echo "success";
-				echo json_encode(
-							array("success" => "success.")
-							);	
+				$message = "Delete";
+				header("Location:view_categories?message=$message");
+					
 		}
 		else
 		{
-			echo json_encode(
-							array("error", $error)
-							);
+			$message = "successul";
+			header("Location:view_categories?message=$message");
 		}
 	}
 
