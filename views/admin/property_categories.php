@@ -125,7 +125,6 @@ include "includes/header.php";
 <script type="text/javascript" src="assets/js/contact-form-script.js"></script>
 <script type="text/javascript" src="assets/js/jquery.themepunch.revolution.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="myscript/myscript.js"></script>
 <script src="assets/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
 	
@@ -167,30 +166,32 @@ function displayform(event){
   		var params =  'category_name=' + category.category_name;
   		addcategory(url, method, params);
   	/*	console.log(params);*/
-  				function addcategory(url, method, params){
-  					var xhr = new XMLHttpRequest();
-  					xhr.onreadystatechange = function(){
-    				if(xhr.readyState == 4){
-     					 var res = xhr.responseText;
-      			    var data = JSON.parse(res);
+      function addcategory(url, method, params){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+               var res = xhr.responseText;
+            /*   console.log(res);*/
+                var data = JSON.parse(res);
+                console.log(data);
                if (data.response[0].success) {
-                window.location = "/addImage?t=pr&&hash_id="+data.response[0].hash_id;
+                window.location = "view_categories";
                }else{
                  alert(data.response[0].unsucessful);
                }
                   
              }
          }
-  					xhr.open(method, url, true);
-  					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  					xhr.send(params);
-				}
-	}
+            xhr.open(method, url, true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(params);
+        }
+  }
 	else{
 		alert(JSON.stringify(errors));
 	}
-	
 }
+
 </script>
 
 </body>

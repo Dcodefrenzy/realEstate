@@ -6,7 +6,8 @@ authenticate();
 	$db = $conn->getConnection();
 	$categories = new Categories($db);
 	$error = [];
-var_dump($_POST);
+	$res['response'] = array();
+
 	if (isset($_POST)) 
 	{
 		if (empty($_POST['category_name'])) 

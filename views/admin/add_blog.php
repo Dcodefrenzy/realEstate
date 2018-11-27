@@ -197,33 +197,34 @@ function displayform(event){
   					 '&author=' + blog.author +
   					 '&body=' + blog.body;
   		addBlog(url, method, params);
-  		
-  				function addBlog(url, method, params){
-  					var xhr = new XMLHttpRequest();
-  					xhr.onreadystatechange = function(){
-    				if(xhr.readyState == 4){
-     					 var res = xhr.responseText;
-     					 /*console.log(res);*/
-     					 
-     					 var data = JSON.parse(res);
-     					 if (data.response[0].success) {
-     					 	window.location = "/addImage?t=blog&&hash_id="+data.response[0].hash_id;
-     					 }else{
-     					 	 alert(data.response[0].unsucessful);
-     					 }
-      						
-   					 }
- 				 }
-  					xhr.open(method, url, true);
-  					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  					xhr.send(params);
-				}
-	}
+       
+          function addBlog(url, method, params){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+               var res = xhr.responseText;
+               /*console.log(res);*/
+               
+               var data = JSON.parse(res);
+               if (data.response[0].success) {
+                window.location = "/addImage?t=blog&&hash_id="+data.response[0].hash_id;
+               }else{
+                 alert(data.response[0].unsucessful);
+               }
+                  
+             }
+         }
+            xhr.open(method, url, true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(params);
+        }
+      }
 	else{
 		alert(JSON.stringify(errors));
 	}
 	
 }
+     
 </script>
 
 </body>

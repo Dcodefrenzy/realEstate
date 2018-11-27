@@ -164,9 +164,11 @@ function displayform(event){
           var params = "email=" + user.email + "&pword=" + user.pword;
           adminLogin(url, method, params);
            /* console.log(params);*/
-
-
-          function adminLogin(url, method, params){
+    else{
+      alert(errors);
+    }
+  }
+        function adminLogin(url, method, params){
              var xhr = new XMLHttpRequest();
               xhr.onreadystatechange = function(){
                 if (xhr.readyState == 4) {
@@ -180,20 +182,14 @@ function displayform(event){
                     }
                     else{
                       console.log(errors);
-                    }
-                    
-
+                    }                    
                 }
               }
               xhr.open(method, url, true);
               xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
               xhr.send(params);
           } 
-    }
-    else{
-      alert(errors);
-    }
-  }
+        }
 </script>
 </body>
 

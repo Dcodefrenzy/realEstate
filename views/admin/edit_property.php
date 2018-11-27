@@ -303,8 +303,7 @@ function displayform(event){
              '&hash_id=' + property.hash_id;
  
       addproperty(url, method, params);
-     
-          function addproperty(url, method, params){
+           function addproperty(url, method, params){
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function(){
             if(xhr.readyState == 4){
@@ -328,8 +327,8 @@ function displayform(event){
   else{
     alert(JSON.stringify(errors));
   }
-  
 }
+     
 </script>
 
 </body>
